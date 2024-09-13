@@ -17,7 +17,7 @@ FASTLED_USING_NAMESPACE
 #define COLOR_ORDER GRB
 #define NUM_LEDS 12
 CRGB leds[NUM_LEDS];
-CRGB SOCD_MODE[4] = { CRGB(255, 255, 0), CRGB(0, 0, 255), CRGB(157, 0, 255), CRGB(255, 0, 0) };
+CRGB SOCD_MODE[4] = {CRGB(157, 0, 255), CRGB(255, 0, 0), CRGB(255, 255, 0), CRGB(0, 0, 255)};
 
 #define BRIGHTNESS 96
 #define FRAMES_PER_SECOND 120
@@ -44,7 +44,7 @@ int home = 25;
 int L3 = 0;
 int R3 = 35;
 
-int SOCD = 4;
+int SOCD = 1;
 
 bool light_mode = 0;
 
@@ -246,19 +246,19 @@ void loop() {
     while (digitalRead(power) == 0) {
       power_timer = millis();
       if (power_timer - power_timer_old >= 3000) {
-        fill_solid(leds, NUM_LEDS, SOCD_MODE[3]);
+        fill_solid(leds, NUM_LEDS, SOCD_MODE[1]);
         FastLED.show();
         delay(500);
         fill_solid(leds, NUM_LEDS, 0x000000);
         FastLED.show();
         delay(500);
-        fill_solid(leds, NUM_LEDS, SOCD_MODE[3]);
+        fill_solid(leds, NUM_LEDS, SOCD_MODE[1]);
         FastLED.show();
         delay(500);
         fill_solid(leds, NUM_LEDS, 0x000000);
         FastLED.show();
         delay(500);
-        fill_solid(leds, NUM_LEDS, SOCD_MODE[3]);
+        fill_solid(leds, NUM_LEDS, SOCD_MODE[1]);
         FastLED.show();
         delay(500);
         fill_solid(leds, NUM_LEDS, 0x000000);
@@ -287,7 +287,7 @@ void loop() {
       if (SOCD == 5) {
         SOCD = 1;
       }
-      fill_solid(leds, NUM_LEDS, SOCD_MODE[SOCD - 1]);
+      fill_solid(leds, NUM_LEDS, SOCD_MODE[SOCD]);
       FastLED.show();
       delay(500);
       socd_timer_old = socd_timer;
