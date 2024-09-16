@@ -2,4 +2,4 @@ This folder has the FW for the Wireless Fightpad. There is currently only 1 opti
 
 You will need to install [ESP32-BLE-CompositeHID](https://github.com/Mystfit/ESP32-BLE-CompositeHID)
 
-IMPORTANT NOTE: ESP32 Arduino Core V3.x.x does not work as they changed how a lot of BLE(and other stuff) works. Please use v2.0.17 and before.
+IMPORTANT NOTE: ESP32 Arduino Core v3.x.x does not work as they changed how a lot of BLE(and other stuff) works. Please use v2.0.17 and before.
